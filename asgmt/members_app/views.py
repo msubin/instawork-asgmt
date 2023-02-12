@@ -32,7 +32,7 @@ def update_member(request, pk):
     return render(request, 'members_app/update_member.html', {'form': form, 'member': member})
 
 
-def delete_member(pk):
+def delete_member(request, pk):
     member = get_object_or_404(Member, pk=pk)
     member.delete()
     return redirect('/')
