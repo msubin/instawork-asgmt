@@ -4,15 +4,16 @@
         <button type="button" id="add_btn" class="btn btn-light" onclick="location.href='/add/'">+</button>
     </div>
     <div class="p-3 m-2">
-        <h1>Team members</h1>
-
-        {% if members %}
-            <p class="mb-5">You have {{members.count}} team members.</p>
-        {% endif %}
+        <div class="border-bottom">
+            <h1>Team members</h1>
+            {% if members %}
+                <p class="mb-5">You have {{members.count}} team members.</p>
+            {% endif %}
+        </div>
 
         {% for member in members %}
             <div
-                class="border-top p-3 d-flex align-items-stretch"
+                class="border-bottom p-3 d-flex align-items-stretch"
                 onclick="location.href='{% url 'update_member' pk=member.pk %}'">
                 <div>
                     <img src="/static/img/avatar.jpg" alt="avatar">
