@@ -6,6 +6,12 @@ from .forms import MemberForm
 # Create your views here.
 def get_member_list(request):
     members = Member.objects.all()
+
+    def format_phone_number(phone):
+        return format(int(phone[:-1]), ",").replace(",", "-") + phone[-1]
+
+    for member in members:
+        member.phoneNumber = format_phone_number(member.phoneNumber)
     return render(request, 'members_app/member_list.html', {'members': members})
 
 
