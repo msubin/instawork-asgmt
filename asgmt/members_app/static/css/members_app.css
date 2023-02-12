@@ -1,0 +1,16 @@
+* {
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+body {
+    padding: 1rem;
+}
+
+img {
+    width: 80px;
+    margin: 1rem;
+}
+
+#add_btn {
+    color: dodgerblue;
+}
