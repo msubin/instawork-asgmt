@@ -1,11 +1,11 @@
 from django.db import models
-from django.conf import settings
 from django.core.validators import RegexValidator
 
 
 # Create your models here.
-class Members(models.Model):
-    name = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+class Member(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
     isAdmin = models.BooleanField()
     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
     phoneNumber = models.CharField(validators=[phoneNumberRegex], max_length=16, unique=True)
@@ -21,4 +21,4 @@ class Members(models.Model):
         pass
 
     def __str__(self):
-        return self.name
+        return f"{self.first_name} {self.last_name}"
