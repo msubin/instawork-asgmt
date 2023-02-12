@@ -23,8 +23,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-between">
-            {% block content %}
-            {% endblock %}
+            <button type="button" class="btn btn-outline-danger" onclick="location.href='{% url 'delete_member' pk=member.pk%}'">Delete</button>
             <button type="submit" class="save btn btn-primary">Save</button>
         </div>
     </form>
