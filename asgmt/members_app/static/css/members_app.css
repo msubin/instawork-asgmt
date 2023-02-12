@@ -14,3 +14,11 @@ img {
 #add_btn {
     color: dodgerblue;
 }
+
+label {
+    display: inline-flex;
+}
+
+.form-check {
+    margin-right: 1rem;
+}
