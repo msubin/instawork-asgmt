@@ -10,7 +10,7 @@ def get_member_list(request):
 
 
 def create_member(request):
-    form = MemberForm(request.POST)
+    form = MemberForm(request.POST or None, initial={'isAdmin': 'False'})
     if request.method == "POST":
         if form.is_valid():
             form.save()
@@ -32,9 +32,7 @@ def update_member(request, pk):
     return render(request, 'members_app/update_member.html', {'form': form, 'member': member})
 
 
-def delete_member(request, pk):
+def delete_member(pk):
     member = get_object_or_404(Member, pk=pk)
-    print(pk)
-    print(member)
     member.delete()
     return redirect('/')

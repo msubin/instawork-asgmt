@@ -10,8 +10,7 @@ ROLES = [
 
 
 class MemberForm(ModelForm, forms.Form):
-    isAdmin = forms.ChoiceField(widget=forms.RadioSelect(attrs={
-                'class': "form-check"}), choices=ROLES)
+    isAdmin = forms.ChoiceField(choices=ROLES, widget=RadioSelect(attrs={'class': "form-check"}))
 
     class Meta:
         model = Member
